@@ -2,7 +2,6 @@ import React from "react";
 
 const Card = ({ Countries }) => {
   const { name, flag } = Countries;
-  console.log(name, flag);
 
   return (
     <div

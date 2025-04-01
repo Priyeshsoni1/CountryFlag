@@ -7,21 +7,24 @@ const Countries = () => {
   const fetchData = async () => {
     try {
       const data = await fetchCountryFlag();
-      setCountry(data);
+
+      setCountry(data || []); // Ensure data is always an array
     } catch (error) {
       console.error("Error fetching data:", error);
+      setCountry([]); // Fallback to an empty array on error
     }
   };
-  console.log(Country);
+
   useEffect(() => {
     fetchData();
   }, []);
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
       {Country.length < 1 ? <>Loading.....</> : null}
-      {Country.map((Countries, index) => {
-        return <Card Countries={Countries} key={index} />;
-      })}
+      {Array.isArray(Country) &&
+        Country.map((Countries, index) => {
+          return <Card Countries={Countries} key={index} />;
+        })}
     </div>
   );
 };
