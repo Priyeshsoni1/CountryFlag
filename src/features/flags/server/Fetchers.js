@@ -13,8 +13,8 @@ export const fetchCountryFlag = async () => {
       console.log("Unexpected response format");
     }
     return data;
-  } catch (err) {
-    console.log("Error in Fetching", err);
+  } catch (error) {
+    console.error("Error fetching data:", error);
     // throw err;
   }
 };

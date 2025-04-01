@@ -9,7 +9,7 @@ const Countries = () => {
       const data = await fetchCountryFlag();
       setCountry(data);
     } catch (error) {
-      console.error("Error fetching country flags:", error);
+      console.error("Error fetching data:", error);
     }
   };
   console.log(Country);
